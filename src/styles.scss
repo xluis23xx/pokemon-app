@@ -6,6 +6,7 @@ html, body {
 body {
     margin: 0;
     font-family: Lato, "Helvetica Neue", sans-serif;
+    background: #F5F5F5;
 }
 
 h3 {
@@ -18,4 +19,20 @@ p {
     color: #5E5E5E;
     font-size: 18px;
     line-height: 27px;
+}
+
+button {
+    width: 131px;
+    height: 44px;
+    font-size: 18px;
+    border-radius: 60px;
+    border: none;
+    background-color: #F22539;
+    color: #FFFFFF;
+    line-height: 21.6px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #C00E20;
+    }
 }

@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .row {
+    margin: auto;
+    padding-bottom: 64px;
+    height: 100%;
+    width: 90%;
+  }
+}

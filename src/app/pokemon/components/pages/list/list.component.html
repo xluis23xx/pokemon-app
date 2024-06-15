@@ -1,0 +1,16 @@
+<div class="container" *ngIf="!isLoading">
+    <div class="row">
+        <app-input-search></app-input-search>
+        <br><br>
+        <app-item-list
+            *ngFor="let pokemon of listPokemon"
+            [name]="pokemon.name"
+            [like]="!!pokemon.like"
+        ></app-item-list>     
+        <!-- <app-card-error></app-card-error>    -->
+        <app-card-error *ngIf="isError"></app-card-error>
+    </div>
+</div>
+<app-btn-filter *ngIf="!isLoading && !isError"></app-btn-filter>
+
+<app-loading *ngIf="isLoading"></app-loading>

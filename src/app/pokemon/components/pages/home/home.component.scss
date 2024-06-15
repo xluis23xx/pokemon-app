@@ -1,47 +1,12 @@
 .container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #ffffff;
 
-    .row {
-        margin: auto;
-        
-        .image {
-            height: 288px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .bg-image {
-                width: 205.95px;
-                height: 205.95px;
-                position: relative;
-                z-index: 1;
-                background-color: #F22539;
-                border-radius: 50%;
-                top: 9.6%;
-                margin-right: 21px;
-                border: 1px black;
-                border: 2px solid black;
-            }
-
-            img {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 2;
-            }
-        }
-
-
-    }
-}
-
-p {
-    padding: 0 25px;
-    margin-bottom: 40px;
+  .row {
+    margin: auto;
+  }
 }

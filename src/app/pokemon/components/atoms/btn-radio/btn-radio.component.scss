@@ -1,0 +1,15 @@
+.btn-radius-icon {
+    height: 44px;
+    width: 44px;
+    background: #F5F5F5;
+    color: #BFBFBF;
+
+    &:hover {
+        background-color: #5E5E5E;
+        opacity: 60%;
+    }
+}
+
+.active {
+    color: #ECA539 !important;
+}

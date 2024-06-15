@@ -1,0 +1,22 @@
+<div class="btn-actions">
+  <div class="btn-actions-space">
+    <button 
+      class="btn-icon" 
+      type="button"
+      [ngClass]="{'disabled': !isActiveAll}"
+      (click)="filterAll()"
+    >
+      <i class="fa-solid fa-list"></i>
+      All
+    </button>
+
+    <button 
+      class="btn-icon" 
+      type="button"
+      [ngClass]="{'disabled': !isActiveFavourite}"
+      (click)="filterFavourite()">
+      <i class="fa-solid fa-star"></i>
+      Favorites
+    </button>
+  </div>
+</div>

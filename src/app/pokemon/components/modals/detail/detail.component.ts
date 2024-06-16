@@ -26,9 +26,6 @@ export class DetailComponent implements OnInit {
   }
 
   getDetailPokemon(): void {
-    // this.pokemonService.getDetail(this.data.name).subscribe((res) => {
-    //   this.pokemonDetail = res;
-    // });
     this.pokemonService
       .getDetail(this.data.name)
       .pipe(

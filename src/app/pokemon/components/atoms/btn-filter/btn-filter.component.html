@@ -12,8 +12,8 @@
     <button 
       class="btn-icon" 
       type="button"
-      [ngClass]="{'disabled': !isActiveFavourite}"
-      (click)="filterFavourite()">
+      [ngClass]="{'disabled': !!isActiveAll}"
+      (click)="filterAll()">
       <i class="fa-solid fa-star"></i>
       Favorites
     </button>

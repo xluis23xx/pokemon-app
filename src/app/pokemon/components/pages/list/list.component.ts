@@ -10,10 +10,10 @@ import { PokemonService } from 'src/app/pokemon/services/service-pokemon.service
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  
   public isLoading: boolean = true;
   public isError: boolean = false;
   public listPokemon: IResult[] = [];
+  public showOnlyLiked: boolean = false;
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -40,16 +40,16 @@ export class ListComponent implements OnInit {
   }
 
   getCurrentUpdatePokemon(): void {
-    this.pokemonService.pokemon$.subscribe(updatedPokemon => {
-     this.listPokemon = this.listPokemon.map(pokemon => {
-      if (pokemon.name === updatedPokemon.name) {
-        return {
-          ...pokemon,
-          like:updatedPokemon.like
+    this.pokemonService.pokemon$.subscribe((updatedPokemon) => {
+      this.listPokemon = this.listPokemon.map((pokemon) => {
+        if (pokemon.name === updatedPokemon.name) {
+          return {
+            ...pokemon,
+            like: updatedPokemon.like,
+          };
         }
-      }
-      return pokemon
-     });
+        return pokemon;
+      });
     });
   }
 }

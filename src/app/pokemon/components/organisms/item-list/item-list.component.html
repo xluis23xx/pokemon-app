@@ -1,7 +1,7 @@
-<div class="item">
+<div class="item" [ngClass]="{disabled: hidden}">
     <h3 (click)="openDetail(pokemon)">{{ pokemon.name| capitalize}}</h3>
     <app-btn-radio 
         [isActive]="!!pokemon.like"
-        (setActive)="updateStatusPokemon()"
+        (setActive)="updateStatusPokemon($event)"
     ></app-btn-radio>
 </div>

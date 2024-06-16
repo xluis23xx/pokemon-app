@@ -10,6 +10,6 @@ export class BtnRadioComponent {
   @Output() setActive: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   addFavourite(): void {
-    this.setActive.emit(true);
+    this.setActive.emit(this.isActive);
   }
 }

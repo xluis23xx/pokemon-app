@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PokemonService } from 'src/app/pokemon/services/service-pokemon.service';
 
 @Component({
   selector: 'app-btn-filter',
@@ -6,18 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./btn-filter.component.scss']
 })
 export class BtnFilterComponent {
-  isActiveAll: boolean = true;
-  isActiveFavourite: boolean = false;
+
+  public isActiveAll: boolean = true;
+
+  constructor(private pokemonService: PokemonService) {}
 
   filterAll(): void {
-    console.log('filterAll');
-    this.isActiveFavourite = false;
-    this.isActiveAll = true;
-  }
-
-  filterFavourite(): void {
-    console.log('filterFavourite');
-    this.isActiveFavourite = true;
-    this.isActiveAll = false;
+    this.isActiveAll = !this.isActiveAll;
+    this.pokemonService.updateFilterAll(this.isActiveAll);
   }
 }

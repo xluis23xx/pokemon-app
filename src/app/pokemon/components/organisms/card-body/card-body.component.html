@@ -1,0 +1,41 @@
+<div class="card-body-content">
+  <div class="label-card">
+    <div class="description">
+      <h3>
+        Name: <span>{{ pokemonItem.name | capitalize}}</span>
+      </h3>
+    </div>
+    <hr />
+  </div>
+
+  <div class="label-card">
+    <div class="description">
+      <h3>
+        Weight: <span>{{ pokemonItem.weight }}</span>
+      </h3>
+    </div>
+    <hr />
+  </div>
+
+  <div class="label-card">
+    <div class="description">
+      <h3>
+        Height: <span>{{ pokemonItem.height }}</span>
+      </h3>
+    </div>
+    <hr />
+  </div>
+
+  <div class="label-card">
+    <div class="description">
+      <h3>
+        Types:
+        <span *ngFor="let type of pokemonItem.types; let i = index"
+          >{{ type.type.name | capitalize
+          }}<span *ngIf="i + 1 < pokemonItem.types.length">, </span>
+        </span>
+      </h3>
+    </div>
+    <hr />
+  </div>
+</div>

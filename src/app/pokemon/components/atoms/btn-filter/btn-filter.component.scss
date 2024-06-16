@@ -8,7 +8,7 @@
   width: 100%;
   background: #ffffff;
 
-  .btn-actions-space{
+  .btn-actions-space {
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -26,5 +26,21 @@
   &:hover {
     background-color: #5e5e5e !important;
     opacity: 85% !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .btn-actions-space {
+    box-sizing: border-box !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  :host ::ng-deep .btn-icon {
+    min-width: 100% !important;
+  }
+
+  :host ::ng-deep .btn-icon:first-child {
+    margin-bottom: 10px !important;
   }
 }

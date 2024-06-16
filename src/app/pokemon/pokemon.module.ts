@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 import { HomeComponent } from './components/pages/home/home.component';
 import { ListComponent } from './components/pages/list/list.component';
-import { FooterComponent } from './components/organisms/footer/footer.component';
 import { BtnHomeComponent } from './components/atoms/btn-home/btn-home.component';
 import { InputSearchComponent } from './components/atoms/input-search/input-search.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,13 +17,17 @@ import { ItemListComponent } from './components/organisms/item-list/item-list.co
 import { CardErrorComponent } from './components/organisms/card-error/card-error.component';
 import { BtnReturnComponent } from './components/atoms/btn-return/btn-return.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { DetailComponent } from './components/modals/detail/detail.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ImgCardComponent } from './components/molecules/img-card/img-card.component';
+import { CardButtonComponent } from './components/organisms/card-button/card-button.component';
+import { CardBodyComponent } from './components/organisms/card-body/card-body.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ListComponent,
-    FooterComponent,
     BtnHomeComponent,
     InputSearchComponent,
     LoadingComponent,
@@ -36,12 +39,17 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     ItemListComponent,
     CardErrorComponent,
     BtnReturnComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    DetailComponent,
+    ImgCardComponent,
+    CardButtonComponent,
+    CardBodyComponent
   ],
   imports: [
     CommonModule,
     PokemonRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class PokemonModule { }

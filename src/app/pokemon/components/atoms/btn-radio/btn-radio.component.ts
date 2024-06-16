@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-btn-radio',
@@ -7,8 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class BtnRadioComponent {
   @Input() isActive: boolean = true;
+  @Output() setActive: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   addFavourite(): void {
-    console.log('addFavourite');
+    this.setActive.emit(true);
   }
 }

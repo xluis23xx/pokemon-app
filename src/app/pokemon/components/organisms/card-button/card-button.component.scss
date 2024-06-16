@@ -1,0 +1,21 @@
+.btn-card {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+@media (max-width: 400px) {
+  .btn-card {
+    box-sizing: border-box !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  :host ::ng-deep .btn-shared {
+    min-width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+}

@@ -1,4 +1,7 @@
 <div class="item">
-    <h3>{{ name | capitalize}}</h3>
-    <app-btn-radio [isActive]="like"></app-btn-radio>
+    <h3 (click)="openDetail(pokemon)">{{ pokemon.name| capitalize}}</h3>
+    <app-btn-radio 
+        [isActive]="!!pokemon.like"
+        (setActive)="updateStatusPokemon()"
+    ></app-btn-radio>
 </div>

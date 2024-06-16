@@ -1,0 +1,34 @@
+.card-body-content {
+    margin-bottom: 20px;
+
+  .label-card {
+    margin: auto;
+    width: 80%;
+
+    .description {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+  }
+}
+
+h3 {
+  margin: 0 !important;
+  font-size: 18px !important;
+  color: #5e5e5e;
+}
+
+p {
+  margin: 0 !important;
+  font-size: 18px !important;
+}
+
+span {
+  font-weight: normal;
+}
+
+hr {
+  opacity: 40%;
+  border: 1px solid #bfbfbf;
+}

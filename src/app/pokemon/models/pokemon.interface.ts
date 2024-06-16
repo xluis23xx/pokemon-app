@@ -27,6 +27,7 @@ export interface IResDetail {
   stats:                    IStat[];
   types:                    IType[];
   weight:                   number;
+  sprites:                  ISprites;
 }
 
 export interface IAbility {
@@ -54,4 +55,16 @@ export interface IStat {
 export interface IType {
   slot: number;
   type: ISpecies;
+}
+
+export interface ISprites {
+  other: IOther;
+}
+
+export interface IOther {
+  dream_world: IDreamWorld;
+}
+
+export interface IDreamWorld {
+  front_default: string;
 }

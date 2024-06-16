@@ -10,6 +10,7 @@ import { PokemonService } from 'src/app/pokemon/services/service-pokemon.service
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+  
   public isLoading: boolean = true;
   public isError: boolean = false;
   public listPokemon: IResult[] = [];
@@ -17,8 +18,8 @@ export class ListComponent implements OnInit {
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
-    // this.detailPokemon();
     this.listPokemons();
+    this.getCurrentUpdatePokemon();
   }
 
   listPokemons(): void {
@@ -38,7 +39,17 @@ export class ListComponent implements OnInit {
       });
   }
 
-  detailPokemon(): void {
-    this.pokemonService.getDetail('ditto').subscribe((res) => console.log(res));
+  getCurrentUpdatePokemon(): void {
+    this.pokemonService.pokemon$.subscribe(updatedPokemon => {
+     this.listPokemon = this.listPokemon.map(pokemon => {
+      if (pokemon.name === updatedPokemon.name) {
+        return {
+          ...pokemon,
+          like:updatedPokemon.like
+        }
+      }
+      return pokemon
+     });
+    });
   }
 }

@@ -1,0 +1,14 @@
+<div class="modal-detail" *ngIf="!isLoading && !isError">
+  <app-img-card [urlImage]="pokemonDetail.sprites.other.dream_world.front_default" (close)="closeModalDialog($event)"></app-img-card>
+
+  <app-card-body [pokemonItem]="pokemonDetail"></app-card-body>
+
+  <app-card-button [pokemon]="data"></app-card-button>
+</div>
+
+<div class="container" *ngIf="isLoading || isError">
+  <div class="row">
+    <app-card-error *ngIf="isError"></app-card-error>
+    <app-loading *ngIf="isLoading"></app-loading>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IResDetail, IResList, IResult } from '../models/pokemon.interface';
@@ -11,6 +11,14 @@ import { IResDetail, IResList, IResult } from '../models/pokemon.interface';
 export class PokemonService {
 
   private baseUrl: string = environment.baseUrl;
+
+  private pokemonSubject = new BehaviorSubject<IResult>({} as IResult);
+
+  public pokemon$ = this.pokemonSubject.asObservable();
+
+  updateStatusPokemon(updatePokemon: IResult) {
+    this.pokemonSubject.next(updatePokemon);
+  }
 
   constructor(private http: HttpClient) { }
 

@@ -4,10 +4,8 @@
         <br><br>
         <app-item-list
             *ngFor="let pokemon of listPokemon"
-            [name]="pokemon.name"
-            [like]="!!pokemon.like"
+            [pokemon]="pokemon"
         ></app-item-list>     
-        <!-- <app-card-error></app-card-error>    -->
         <app-card-error *ngIf="isError"></app-card-error>
     </div>
 </div>

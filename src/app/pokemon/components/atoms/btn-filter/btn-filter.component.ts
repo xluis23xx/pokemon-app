@@ -8,12 +8,16 @@ import { PokemonService } from 'src/app/pokemon/services/service-pokemon.service
 })
 export class BtnFilterComponent {
 
-  public isActiveAll: boolean = true;
+  public isNotActiveAll: boolean = true;
 
   constructor(private pokemonService: PokemonService) {}
 
-  filterAll(): void {
-    this.isActiveAll = !this.isActiveAll;
-    this.pokemonService.updateFilterAll(this.isActiveAll);
+  filterAll(active: boolean): void {
+    if (active) {
+      this.isNotActiveAll = true;
+    } else {
+      this.isNotActiveAll = false;
+    }
+    this.pokemonService.updateFilterAll(active);
   }
 }

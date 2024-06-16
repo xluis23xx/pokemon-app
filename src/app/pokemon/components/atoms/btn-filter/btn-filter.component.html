@@ -3,8 +3,8 @@
     <button 
       class="btn-icon" 
       type="button"
-      [ngClass]="{'disabled': !isActiveAll}"
-      (click)="filterAll()"
+      [ngClass]="{'disabled': !isNotActiveAll}"
+      (click)="filterAll(true)"
     >
       <i class="fa-solid fa-list"></i>
       All
@@ -12,8 +12,8 @@
     <button 
       class="btn-icon" 
       type="button"
-      [ngClass]="{'disabled': !!isActiveAll}"
-      (click)="filterAll()">
+      [ngClass]="{'disabled': isNotActiveAll}"
+      (click)="filterAll(false)">
       <i class="fa-solid fa-star"></i>
       Favorites
     </button>

@@ -1,4 +1,4 @@
 <div class="btn-card">
-  <app-btn-shared></app-btn-shared>
+  <app-btn-shared [pokemonShared]="pokemon"></app-btn-shared>
   <app-btn-radio [isActive]="!!pokemon.like" (setActive)="updateStatusPokemon()"></app-btn-radio>
 </div>

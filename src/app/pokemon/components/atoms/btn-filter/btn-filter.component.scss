@@ -1,3 +1,5 @@
+@import '../../../../../variables';
+
 .btn-actions {
   display: flex;
   justify-content: space-around;
@@ -6,7 +8,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #ffffff;
+  background: $secondary-white-color;
 
   .btn-actions-space {
     display: flex;
@@ -20,11 +22,11 @@
 }
 
 .disabled {
-  background-color: #bfbfbf !important;
-  color: #ffffff;
+  background: $grey-color !important;
+  color: $secondary-white-color;
 
   &:hover {
-    background-color: #5e5e5e !important;
+    background: $secondary-grey-color !important;
     opacity: 85% !important;
   }
 }

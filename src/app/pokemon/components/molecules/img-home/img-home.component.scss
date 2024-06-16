@@ -1,3 +1,5 @@
+@import '../../../../../variables';
+
 .image {
   height: 288px;
   position: relative;
@@ -10,7 +12,7 @@
     height: 205.95px;
     position: relative;
     z-index: 1;
-    background-color: #f22539;
+    background: $red-color;
     border-radius: 50%;
     top: 9.6%;
     margin-right: 21px;

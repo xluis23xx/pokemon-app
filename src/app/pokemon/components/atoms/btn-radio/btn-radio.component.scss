@@ -1,15 +1,17 @@
+@import '../../../../../variables';
+
 .btn-radius-icon {
     height: 44px;
     width: 44px;
-    background: #F5F5F5;
-    color: #BFBFBF;
+    background: $white-color;
+    color: $grey-color;
 
     &:hover {
-        background-color: #5E5E5E;
+        background: $secondary-grey-color;
         opacity: 60%;
     }
 }
 
 .active {
-    color: #ECA539 !important;
+    color: $yellow-color !important;
 }

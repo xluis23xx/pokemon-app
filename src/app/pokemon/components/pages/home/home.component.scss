@@ -1,10 +1,9 @@
+@import '../../../../../variables';
+
 .container {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  background: #ffffff;
+  background: $secondary-white-color;
 
   .row {
     margin: auto;

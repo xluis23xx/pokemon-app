@@ -1,39 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-    height: 100%;
+@import './variables';
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: Lato, "Helvetica Neue", sans-serif;
-    background: #F5F5F5;
+  margin: 0;
+  font-family: Lato, "Helvetica Neue", sans-serif;
+  background: $white-color;
 }
 
 h3 {
-    color: #353535;
-    font-size: 26px;
-    line-height: 31.2px;
+  color: $title-color;
+  font-size: 26px;
+  line-height: 31.2px;
 }
 
 p {
-    color: #5E5E5E;
-    font-size: 18px;
-    line-height: 27px;
+  color: secondary-grey-color;
+  font-size: 18px;
+  line-height: 27px;
 }
 
 button {
-    width: 131px;
-    height: 44px;
-    font-size: 18px;
-    border-radius: 60px;
-    border: none;
-    background-color: #F22539;
-    color: #FFFFFF;
-    line-height: 21.6px;
-    outline: none;
-    cursor: pointer;
+  width: 131px;
+  height: 44px;
+  font-size: 18px;
+  border-radius: 60px;
+  border: none;
+  background: $red-color;
+  color: $secondary-white-color;
+  line-height: 21.6px;
+  outline: none;
+  cursor: pointer;
 
-    &:hover {
-        background-color: #C00E20;
-    }
+  &:hover {
+    background: $red-color-hover;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

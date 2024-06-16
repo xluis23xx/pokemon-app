@@ -1,3 +1,5 @@
+@import '../../../../../variables';
+
 .card-body-content {
     margin-bottom: 20px;
 
@@ -16,7 +18,7 @@
 h3 {
   margin: 0 !important;
   font-size: 18px !important;
-  color: #5e5e5e;
+  color: $secondary-grey-color;
 }
 
 p {
@@ -30,5 +32,5 @@ span {
 
 hr {
   opacity: 40%;
-  border: 1px solid #bfbfbf;
+  border: 1px solid $grey-color;
 }

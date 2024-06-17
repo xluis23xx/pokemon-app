@@ -58,6 +58,7 @@ export class ItemListComponent implements OnInit, OnDestroy {
   openDetail(pokemon: IResult): void {
     this._matDialog.open(DetailComponent, {
       width: '688px',
+      maxHeight: '90vh',
       data: pokemon,
     });
   }

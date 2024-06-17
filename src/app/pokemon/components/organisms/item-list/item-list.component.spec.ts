@@ -1,21 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialog } from '@angular/material/dialog';
 import { ItemListComponent } from './item-list.component';
+import { PokemonService } from 'src/app/pokemon/services/service-pokemon.service';
+import { of } from 'rxjs';
 
-describe('ItemListComponent', () => {
+describe('@ItemListComponent', () => {
   let component: ItemListComponent;
-  let fixture: ComponentFixture<ItemListComponent>;
+  let spyMatDialog: jasmine.SpyObj<MatDialog>;
+  let spyService: jasmine.SpyObj<PokemonService>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ItemListComponent]
+    spyService = jasmine.createSpyObj('PokemonService', [], {
+      filterSearch$: of(''), filterAll$: of(true)
     });
-    fixture = TestBed.createComponent(ItemListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spyMatDialog = jasmine.createSpyObj('MatDialog', ['open']);
+    component = new ItemListComponent(spyMatDialog, spyService)
   });
 
-  it('should create', () => {
+  it('#should create', () => {
     expect(component).toBeTruthy();
   });
 });

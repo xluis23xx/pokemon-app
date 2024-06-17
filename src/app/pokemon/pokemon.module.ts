@@ -23,7 +23,6 @@ import { ImgCardComponent } from './components/molecules/img-card/img-card.compo
 import { CardButtonComponent } from './components/organisms/card-button/card-button.component';
 import { CardBodyComponent } from './components/organisms/card-body/card-body.component';
 
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -43,13 +42,13 @@ import { CardBodyComponent } from './components/organisms/card-body/card-body.co
     DetailComponent,
     ImgCardComponent,
     CardButtonComponent,
-    CardBodyComponent
+    CardBodyComponent,
   ],
   imports: [
     CommonModule,
     PokemonRoutingModule,
     ReactiveFormsModule,
-    MatDialogModule
-  ]
+    MatDialogModule,
+  ],
 })
-export class PokemonModule { }
+export class PokemonModule {}

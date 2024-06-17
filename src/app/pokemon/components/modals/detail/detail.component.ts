@@ -1,16 +1,17 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Subscription, of } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
 import { IResDetail, IResult } from '../../../models/pokemon.interface';
 import { PokemonService } from '../../../services/service-pokemon.service';
-import { of } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
   public isLoading: boolean = true;
   public isError: boolean = false;
   public pokemonDetail: IResDetail = {} as IResDetail;
@@ -26,23 +27,29 @@ export class DetailComponent implements OnInit {
   }
 
   getDetailPokemon(): void {
-    this.pokemonService
-      .getDetail(this.data.name)
-      .pipe(
-        finalize(() => (this.isLoading = false)),
-        catchError((err) => {
-          this.isError = true;
-          return of();
+    this.subscription.add(
+      this.pokemonService
+        .getDetail(this.data.name)
+        .pipe(
+          finalize(() => (this.isLoading = false)),
+          catchError((err) => {
+            this.isError = true;
+            return of();
+          })
+        )
+        .subscribe((res) => {
+          if (res) {
+            this.pokemonDetail = res;
+          }
         })
-      )
-      .subscribe((res) => {
-        if (res) {
-          this.pokemonDetail = res;
-        }
-      });
+    );
   }
 
-  closeModalDialog($event: boolean) {
+  closeModalDialog() {
     this._matDialogRef.close(this.data);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

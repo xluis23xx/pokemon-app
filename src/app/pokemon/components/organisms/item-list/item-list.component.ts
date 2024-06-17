@@ -1,15 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { IResult } from 'src/app/pokemon/models/pokemon.interface';
-import { DetailComponent } from '../../modals/detail/detail.component';
 import { PokemonService } from 'src/app/pokemon/services/service-pokemon.service';
+import { DetailComponent } from '../../modals/detail/detail.component';
 
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
   styleUrls: ['./item-list.component.scss'],
 })
-export class ItemListComponent implements OnInit {
+export class ItemListComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
   public hidden: boolean = false;
   public statusFilterActive: boolean = true;
   @Input() pokemon: IResult = {} as IResult;
@@ -26,15 +28,18 @@ export class ItemListComponent implements OnInit {
   }
 
   setDisabledItemByModal(): void {
-    if (!this.statusFilterActive && !this.pokemon.like && !this.hidden) this.hidden = true;
+    if (!this.statusFilterActive && !this.pokemon.like && !this.hidden)
+      this.hidden = true;
   }
 
   getStatusActiveFilter(): void {
-    this.pokemonService.filterAll$.subscribe((res) => {
-      this.statusFilterActive = res;
-      if (!res && !this.pokemon.like) this.hidden = true;
-      if (res) this.hidden = false;
-    });
+    this.subscription.add(
+      this.pokemonService.filterAll$.subscribe((res) => {
+        this.statusFilterActive = res;
+        if (!res && !this.pokemon.like) this.hidden = true;
+        if (res) this.hidden = false;
+      })
+    );
   }
 
   updateStatusPokemon($event: boolean): void {
@@ -43,9 +48,11 @@ export class ItemListComponent implements OnInit {
   }
 
   getFilterSearch(): void {
-    this.pokemonService.filterSearch$.subscribe((res) => {
-      this.hidden = !this.pokemon.name.includes(res) ? true : false;
-    });
+    this.subscription.add(
+      this.pokemonService.filterSearch$.subscribe((res) => {
+        this.hidden = !this.pokemon.name.includes(res) ? true : false;
+      })
+    );
   }
 
   openDetail(pokemon: IResult): void {
@@ -53,5 +60,9 @@ export class ItemListComponent implements OnInit {
       width: '688px',
       data: pokemon,
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

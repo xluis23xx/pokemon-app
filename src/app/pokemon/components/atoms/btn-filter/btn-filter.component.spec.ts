@@ -1,18 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { PokemonService } from 'src/app/pokemon/services/service-pokemon.service';
 import { BtnFilterComponent } from './btn-filter.component';
 
 describe('BtnFilterComponent', () => {
   let component: BtnFilterComponent;
-  let fixture: ComponentFixture<BtnFilterComponent>;
+  let spyService: jasmine.SpyObj<PokemonService>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [BtnFilterComponent]
-    });
-    fixture = TestBed.createComponent(BtnFilterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spyService = jasmine.createSpyObj('PokemonService', ['updateFilterAll']);
+    component = new BtnFilterComponent(spyService);
   });
 
   it('should create', () => {

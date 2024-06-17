@@ -1,21 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Router } from '@angular/router';
+import { REDIRECT_HOME } from 'src/app/pokemon/elements/constants';
 import { CardErrorComponent } from './card-error.component';
 
-describe('CardErrorComponent', () => {
+describe('@CardErrorComponent', () => {
   let component: CardErrorComponent;
-  let fixture: ComponentFixture<CardErrorComponent>;
+  let spyRouter: jasmine.SpyObj<Router>
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [CardErrorComponent]
-    });
-    fixture = TestBed.createComponent(CardErrorComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spyRouter = jasmine.createSpyObj('Router', ['navigate']);
+    component = new CardErrorComponent(spyRouter);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('#should navigate home view', () => {
+    const urlView = REDIRECT_HOME;
+
+    component.goToHome(urlView);
+
+    expect(spyRouter.navigate).toHaveBeenCalled();
   });
 });

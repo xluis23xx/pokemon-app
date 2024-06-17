@@ -1,21 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { PokemonService } from 'src/app/pokemon/services/service-pokemon.service';
 import { CardButtonComponent } from './card-button.component';
 
-describe('CardButtonComponent', () => {
+describe('@CardButtonComponent', () => {
   let component: CardButtonComponent;
-  let fixture: ComponentFixture<CardButtonComponent>;
+  let spyService: jasmine.SpyObj<PokemonService>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [CardButtonComponent]
-    });
-    fixture = TestBed.createComponent(CardButtonComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spyService = jasmine.createSpyObj('PokemonService', ['updateStatusPokemon']);
+    component = new CardButtonComponent(spyService)
   });
 
-  it('should create', () => {
+  it('#should create', () => {
     expect(component).toBeTruthy();
   });
 });

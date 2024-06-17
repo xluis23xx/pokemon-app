@@ -1,21 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { REDIRECT_LIST } from 'src/app/pokemon/elements/constants';
 import { TextHomeComponent } from './text-home.component';
+import { Router } from '@angular/router';
 
-describe('TextHomeComponent', () => {
+describe('@TextHomeComponent', () => {
   let component: TextHomeComponent;
-  let fixture: ComponentFixture<TextHomeComponent>;
+  let spyRouter: jasmine.SpyObj<Router>
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TextHomeComponent]
-    });
-    fixture = TestBed.createComponent(TextHomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spyRouter = jasmine.createSpyObj('Router', ['navigate']);
+    component = new TextHomeComponent(spyRouter);
   });
 
-  it('should create', () => {
+  it('#should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('#should navigate list view', () => {
+    const urlView = REDIRECT_LIST;
+
+    component.goToList(urlView);
+
+    expect(spyRouter.navigate).toHaveBeenCalled();
   });
 });

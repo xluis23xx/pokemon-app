@@ -1,5 +1,5 @@
 <div class="modal-detail" *ngIf="!isLoading && !isError">
-  <app-img-card [urlImage]="pokemonDetail.sprites.other.dream_world.front_default" (close)="closeModalDialog($event)"></app-img-card>
+  <app-img-card [urlImage]="pokemonDetail.sprites.other.dream_world.front_default" (close)="closeModalDialog()"></app-img-card>
 
   <app-card-body [pokemonItem]="pokemonDetail"></app-card-body>
 

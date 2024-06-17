@@ -50,7 +50,12 @@ export class ItemListComponent implements OnInit, OnDestroy {
   getFilterSearch(): void {
     this.subscription.add(
       this.pokemonService.filterSearch$.subscribe((res) => {
-        this.hidden = !this.pokemon.name.includes(res) ? true : false;
+        if (this.statusFilterActive) {
+          this.hidden = !this.pokemon.name.includes(res) ? true : false;
+        }
+        if (!this.statusFilterActive && this.pokemon.like) {
+          this.hidden = !this.pokemon.name.includes(res) ?  true : false;
+        }
       })
     );
   }

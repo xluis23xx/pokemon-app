@@ -24,6 +24,6 @@ export class InputSearchComponent implements OnInit {
   }
 
   filterPokemon(searchValue: string): void {
-    this.pokemonService.updateFilterSearch(searchValue);
+    this.pokemonService.updateFilterSearch(searchValue.toLowerCase());
   }
 }
